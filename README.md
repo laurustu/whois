@@ -20,11 +20,17 @@ parse.py list.txt
 parse.py list.txt -o data.json
 ```
 #### where:
-`file` is a text file with domains line by line that are necessary to parse;
+* Required parameters:
+ 
+   `file` is a text file with domains line by line that are necessary to parse.
 
-`-t` show additional messages with the time of each operation;
+* Optional parameters:
 
-`-h` show help message.
+   `-o file_name.json` is the file name where your scraped data will be saved; 
+
+   `-t` show additional messages with the time of each operation;
+
+   `-h` show help message.
 
 ### Text file example:
 ```
