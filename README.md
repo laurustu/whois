@@ -9,7 +9,7 @@ Python 3.3+:
 
 ## Usage
 ```bash
-parse.py [-h] [-t] file
+parse.py [-h] [-o file_name.json] [-t] FILE
 ```
 ### Example:
 ```bash
@@ -17,7 +17,7 @@ parse.py list.txt
 ```
 ### Or:
 ```bash
-parse.py list.txt -t
+parse.py list.txt -o data.json
 ```
 #### where:
 `file` is a text file with domains line by line that are necessary to parse;
