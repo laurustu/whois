@@ -11,8 +11,9 @@ from random import randint
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("file", type=argparse.FileType("r"), help="text file with list of domains.")
-parser.add_argument("-t", "--timing", help="shows timing of each operation.", action="store_true")
+parser.add_argument("file", type=argparse.FileType("r"), help="input text file with list of domains.", metavar="FILE")
+parser.add_argument("-o", type=str, help="output json file with scrapped data.", metavar="file_name.json", default="dump.json")
+parser.add_argument("-t", "--timing", help="show timing of each operation.", action="store_true")
 args = parser.parse_args()
 
 
@@ -165,12 +166,13 @@ def save_dump():
     :return: .json file
     """
     print("\nSaving data... ", sep="", end="", flush=True)
-    with open("dump.json", "w") as json_file:
+    with open(args.o, "w") as json_file:
         json.dump(all_data, json_file)
     time_elapsed = time.time() - time_start
-    print("Done.\nOutput json file placed to {}/dump.json\nElapsed time: {:.0f}m {:.0f}s".format(os.getcwd(),
-                                                                                                 time_elapsed / 60,
-                                                                                                 time_elapsed % 60))
+    print("Done.\nOutput json file placed to {}/{}\nElapsed time: {:.0f}m {:.0f}s".format(os.getcwd(),
+                                                                                          args.o,
+                                                                                          time_elapsed / 60,
+                                                                                          time_elapsed % 60))
 
 
 def work():
